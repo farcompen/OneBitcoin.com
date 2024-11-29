@@ -1,0 +1,21 @@
+{
+  "name": "cryptopricebackend",
+  "version": "1.0.0",
+  "description": "crypto price app",
+  "main": "api/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node api/index.js"
+  },
+  "keywords": [
+    "crypto",
+    "price"
+  ],
+  "author": "faruk GÜNGÖR",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1"
+  }
+}
