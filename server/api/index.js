@@ -2,8 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const api = require("./api");
-const TOP_ASSETS = require("./topAssets").INIT_ASSETS();
-
+const setInitAssets = require("./topAssets");
+console.log(typeof(setInitAssets))
 require("dotenv").config();
 app.use(cors());
 let prices = [];
@@ -47,10 +47,10 @@ const checkIfEmpty = async () => {
   }
   if (topAssets.length == 0) {
     topAssets = await prices.data.filter(function (item) {
-      if (TOP_ASSETS.some((a) => a.name == item.instId)) {
-       const index = TOP_ASSETS.findIndex(a=>a.name==item.instId);
-        item.icon = TOP_ASSETS[index].icon; 
-        item.fullName=TOP_ASSETS[index].fullName;
+      if (setInitAssets().some((a) => a.name == item.instId)) {
+       const index = setInitAssets().findIndex(a=>a.name==item.instId);
+        item.icon = setInitAssets()[index].icon; 
+        item.fullName=setInitAssets()[index].fullName;
         return item;
       }
     });

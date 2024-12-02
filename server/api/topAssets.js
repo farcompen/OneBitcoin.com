@@ -1,4 +1,6 @@
-module.exports.INIT_ASSETS = ()=>{
+
+
+function setInitAssets (){
 
   const topAssets =  [
     {
@@ -92,3 +94,5 @@ module.exports.INIT_ASSETS = ()=>{
 
   
 }
+
+module.exports=setInitAssets;
