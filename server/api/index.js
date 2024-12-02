@@ -36,7 +36,7 @@ app.get("/api/prices", async (req, res) => {
 
 //#region  topAssets
 const getTopAssets = async () => {
-  console.log(top_assets())
+ 
   await checkIfEmpty();
  
   return topAssets.sort((a) => a.instId);
@@ -58,8 +58,9 @@ const checkIfEmpty = async () => {
   }
 };
 
-app.get("/api/topAssets", async (req, res) => {
+app.get("/api/topassets", async (req, res) => {
   try {
+    console.log(top_assets())
     const result = await getTopAssets();
 
     res.status(200).send({
