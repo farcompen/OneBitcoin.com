@@ -1,6 +1,6 @@
 
 
-function setInitAssets (){
+ function setInitAssets (){
 
   const topAssets =  [
     {
