@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const api = require("./api");
-const TOP_ASSETS = require("./topAssets");
+const TOP_ASSETS = require("./topAssets").INIT_ASSETS();
 
 require("dotenv").config();
 app.use(cors());
@@ -13,7 +13,7 @@ let exchangeList =[];
 process.on("unhandledRejection", (error) => {
   console.log("unhandled rejection", error.message);
 });
-const ta =  TOP_ASSETS.INIT_ASSETS();
+
 app.get("/up", (req, res) => {
   res.status(200).send({
     status: "success",
@@ -47,10 +47,10 @@ const checkIfEmpty = async () => {
   }
   if (topAssets.length == 0) {
     topAssets = await prices.data.filter(function (item) {
-      if (ta.some((a) => a.name == item.instId)) {
-       const index = ta.findIndex(a=>a.name==item.instId);
-        item.icon = ta[index].icon; 
-        item.fullName=ta[index].fullName;
+      if (TOP_ASSETS.some((a) => a.name == item.instId)) {
+       const index = TOP_ASSETS.findIndex(a=>a.name==item.instId);
+        item.icon = TOP_ASSETS[index].icon; 
+        item.fullName=TOP_ASSETS[index].fullName;
         return item;
       }
     });
