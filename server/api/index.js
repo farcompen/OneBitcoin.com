@@ -13,7 +13,7 @@ let exchangeList =[];
 process.on("unhandledRejection", (error) => {
   console.log("unhandled rejection", error.message);
 });
-const ta = await TOP_ASSETS.INIT_ASSETS();
+const ta =  TOP_ASSETS.INIT_ASSETS();
 app.get("/up", (req, res) => {
   res.status(200).send({
     status: "success",
@@ -58,13 +58,23 @@ const checkIfEmpty = async () => {
 };
 
 app.get("/api/topAssets", async (req, res) => {
- 
-  const result = await getTopAssets();
+  try {
+    const result = await getTopAssets();
 
-  res.status(200).send({
-    status: "success",
-    assets: result,
-  });
+    res.status(200).send({
+      status: "success",
+      assets: result,
+    });
+
+  }
+  catch(err){
+    res.status(200).send({
+      status:"error"+err,
+      assets:[]
+    })
+  }
+ 
+ 
 });
 
 //#endregion

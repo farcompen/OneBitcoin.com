@@ -1,4 +1,4 @@
-module.exports.INIT_ASSETS =async ()=>{
+module.exports.INIT_ASSETS = ()=>{
 
   const topAssets =  [
     {
