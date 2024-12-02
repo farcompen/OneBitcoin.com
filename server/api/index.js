@@ -13,7 +13,7 @@ let exchangeList =[];
 process.on("unhandledRejection", (error) => {
   console.log("unhandled rejection", error.message);
 });
-const ta = TOP_ASSETS.INIT_ASSETS();
+const ta = await TOP_ASSETS.INIT_ASSETS();
 app.get("/up", (req, res) => {
   res.status(200).send({
     status: "success",
