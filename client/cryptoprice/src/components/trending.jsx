@@ -68,7 +68,9 @@ const Trending = ()=>{
                           <img src={coin.icon} height={5} width={20}></img>
                         ) : null}
 
-                        {coin.code}
+                      {
+                        coin.code.replaceAll("_","")
+                      }
                       </p>
                     </td>
                     <td class=" text-left border-b border-gray-100 bg-white px-5 py-5  ">
