@@ -30,10 +30,10 @@ module.exports.Exchange = async () => {
     }),
     body: JSON.stringify({
       currency: "USD",
-      sort: "visitors",
+      sort: "volume",
       order: "descending",
       offset: 0,
-      limit: 500,
+      limit: 100,
       meta: true,
     }),
   }).then(res=>res.json());

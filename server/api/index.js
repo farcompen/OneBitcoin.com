@@ -180,9 +180,7 @@ res.status(200).send({
 const setExhangeList = async()=>{
   if(exchangeList.length==0){
     exchangeList= await api.Exchange();
-    exchangeList = await exchangeList.sort(function(a,b){
-      return b.volume-a.volume
-    })
+   
 
   }
 }
