@@ -6,7 +6,9 @@ import ChartComponent from "./chart";
 const apiUrl = process.env.REACT_APP_LIVE_API_URL
 const Trending = ()=>{
     const[trending,setTrending]=useState([])
+    const[loading,setLoading]=useState(true);
     useEffect(()=>{
+      setLoading(true);
         fetchTrending();
     },[])
 
@@ -14,7 +16,7 @@ const Trending = ()=>{
         const result = await fetch(apiUrl)
                             .then(res=>res.json())
                  setTrending(result.result.data); 
-                 
+                 setLoading(false);
                  console.log(result.result.data)
 
     }
@@ -53,7 +55,10 @@ const Trending = ()=>{
                 </tr>
               </thead>
               <tbody class="text-black-400 lg:text-base md:text-base sm:text-base  xs:text-xs">
-                {trending.map((coin, index) => (
+                {
+                loading?(<div className="text-black-300">loading ...</div>):
+               
+                trending.map((coin, index) => (
                   <tr className="xs:text-left">
                     <td class="text-center border-b border-gray-100 bg-white px-0 py-0  ">
                       <p class="whitespace-no-wrap">{index + 1}</p>

@@ -5,13 +5,17 @@ import { FormatDollar } from "../utils/currencyFormatter";
 const exchangeApiUrl = process.env.REACT_APP_EXCHANGES_API_URL;
 const Exchanges = () => {
   const [exc, setExc] = useState([]);
+  const [loading,setLoading]=useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetchExchanges();
   }, []);
   const fetchExchanges = async () => {
     const result = await fetch(exchangeApiUrl).then((res) => res.json());
+    setLoading(false);
     setExc(result.result);
+    
   };
   return (
     <>
@@ -39,7 +43,9 @@ const Exchanges = () => {
                 </tr>
               </thead>
               <tbody class="text-black-400 lg:text-base md:text-base sm:text-base  xs:text-xs">
-                {exc.map((coin, index) => (
+                {
+                loading?(<div className="text-black-300">loading ...</div>):
+                exc.map((coin, index) => (
                   <tr className="xs:text-left">
                     <td class="text-center border-b border-gray-100 bg-white px-0 py-0  ">
                       <p class="whitespace-no-wrap">{index + 1}</p>
