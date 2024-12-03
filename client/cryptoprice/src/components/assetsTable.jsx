@@ -6,10 +6,13 @@ const AssetsTable = ({ coins, isHide, handleOrder }) => {
   const [loading,setLoading]=useState(true);
   //const [assets,setAssets]=useState([coins]);
   useEffect(() => {
+    console.log("assets effected")
     setSorted(coins);
-    if(coins){
+    setLoading(true);
+    if(coins.length>0){
       setLoading(false);
     }
+    
   }, [coins]);
   const handleDifference = (last, open) => {
     const result = (((last - open) / open) * 100).toFixed(2);
