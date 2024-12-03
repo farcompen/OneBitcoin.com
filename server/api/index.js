@@ -202,7 +202,7 @@ const setExhangeList = async()=>{
   setInterval(async()=>{
     await setExhangeList();
 
-  },24*60*1000)
+  },3600*1000)
 })();
 
 app.listen("6005", () => console.log("serivce started on 6005"));
