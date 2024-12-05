@@ -5,7 +5,7 @@ import { FormatDollar } from "../utils/currencyFormatter";
 const exchangeApiUrl = process.env.REACT_APP_EXCHANGES_API_URL;
 const Exchanges = () => {
   const [exc, setExc] = useState([]);
-  const [loading,setLoading]=useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
@@ -15,7 +15,6 @@ const Exchanges = () => {
     const result = await fetch(exchangeApiUrl).then((res) => res.json());
     setLoading(false);
     setExc(result.result);
-    
   };
   return (
     <>
@@ -43,37 +42,37 @@ const Exchanges = () => {
                 </tr>
               </thead>
               <tbody class="text-black-400 lg:text-base md:text-base sm:text-base  xs:text-xs">
-                {
-                loading?(<div className="text-black-300">loading ...</div>):
-                exc.map((coin, index) => (
-                  <tr className="xs:text-left">
-                    <td class="text-center border-b border-gray-100 bg-white px-0 py-0  ">
-                      <p class="whitespace-no-wrap">{index + 1}</p>
-                    </td>
-                    <td class="text-left border-b border-gray-100 bg-white px-0 py-0  ">
-                      <p class="whitespace-no-wrap">
-                      
-                        {coin.code}</p>
-                    </td>
+                {loading ? (
+                  <div className="text-black-300">loading ...</div>
+                ) : (
+                  exc.map((coin, index) => (
+                    <tr className="xs:text-left">
+                      <td class="text-center border-b border-gray-100 bg-white px-0 py-0  ">
+                        <p class="whitespace-no-wrap">{index + 1}</p>
+                      </td>
+                      <td class="text-left border-b border-gray-100 bg-white px-0 py-0  ">
+                        <p class="whitespace-no-wrap">{coin.code}</p>
+                      </td>
 
-                    <td class=" text-left border-b border-gray-100 bg-white px-5 py-5  ">
-                      <p class="whitespace-no-wrap flex gap-2">
-                        <img src={coin.png64} height={5} width={20}></img>
+                      <td class=" text-left border-b border-gray-100 bg-white px-5 py-5  ">
+                        <p class="whitespace-no-wrap flex gap-2">
+                          <img src={coin.png64} height={5} width={20}></img>
 
-                        {coin.name}
-                      </p>
-                    </td>
-                    <td class=" text-left border-b border-gray-100 bg-white px-5 py-5  ">
-                      <p class="whitespace-no-wrap">{coin.markets}</p>
-                    </td>
+                          {coin.name}
+                        </p>
+                      </td>
+                      <td class=" text-left border-b border-gray-100 bg-white px-5 py-5  ">
+                        <p class="whitespace-no-wrap">{coin.markets}</p>
+                      </td>
 
-                    <td class="text-left border-b border-gray-100 bg-white px-5 py-5 ">
-                      <p class="whitespace-no-wrap">
-                        {FormatDollar(coin.volume)}
-                      </p>
-                    </td>
-                  </tr>
-                ))}
+                      <td class="text-left border-b border-gray-100 bg-white px-5 py-5 ">
+                        <p class="whitespace-no-wrap">
+                          {FormatDollar(coin.volume)}
+                        </p>
+                      </td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>

@@ -3,30 +3,28 @@ import Navbar from "./navbar";
 import MarketNav from "./marketNav";
 import { FormatDollar } from "../utils/currencyFormatter";
 import ChartComponent from "./chart";
-const apiUrl = process.env.REACT_APP_LIVE_API_URL
-const Trending = ()=>{
-    const[trending,setTrending]=useState([])
-    const[loading,setLoading]=useState(true);
-    useEffect(()=>{
-      setLoading(true);
-        fetchTrending();
-    },[])
+const apiUrl = process.env.REACT_APP_LIVE_API_URL;
+const Trending = () => {
+  const [trending, setTrending] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(true);
+    fetchTrending();
+  }, []);
 
-    const fetchTrending = async()=>{
-        const result = await fetch(apiUrl)
-                            .then(res=>res.json())
-                 setTrending(result.result.data); 
-                 setLoading(false);
-                 console.log(result.result.data)
+  const fetchTrending = async () => {
+    const result = await fetch(apiUrl).then((res) => res.json());
+    setTrending(result.result.data);
+    setLoading(false);
+    console.log(result.result.data);
+  };
 
-    }
-    
-    return(
-        <>
-        <Navbar/>
-        <MarketNav/>
-<p className="flex items-center justify-center"> Trending List</p>
-        <div class=" flex items-center  justify-center px-4 sm:px-8">
+  return (
+    <>
+      <Navbar />
+      <MarketNav />
+      <p className="flex items-center justify-center"> Trending List</p>
+      <div class=" flex items-center  justify-center px-4 sm:px-8">
         <div class="flex items-center justify-between pb-6">
           <div>
             {/* <h2 class="font-semibold text-gray-700">All Coins Table</h2>
@@ -43,62 +41,53 @@ const Trending = ()=>{
                   <th class="px-5 py-3 text-left">Rank</th>
                   <th class="px-5 py-3 text-left">Coin</th>
                   <th class="px-5 py-3 text-left">Price</th>
-                  <th
-                    class="px-5 py-3 text-left"
-                  
-                  >
-                    MarketCap
-                  </th>
+                  <th class="px-5 py-3 text-left">MarketCap</th>
                   <th class="px-5 py-3 text-left">Favorites</th>
                   <th class="px-5 py-3 text-left">Daily</th>
-                 
                 </tr>
               </thead>
               <tbody class="text-black-400 lg:text-base md:text-base sm:text-base  xs:text-xs">
-                {
-                loading?(<div className="text-black-300">loading ...</div>):
-               
-                trending.map((coin, index) => (
-                  <tr className="xs:text-left">
-                    <td class="text-center border-b border-gray-100 bg-white px-0 py-0  ">
-                      <p class="whitespace-no-wrap">{index + 1}</p>
-                    </td>
-                    <td class="text-left border-b border-gray-100 bg-white px-0 py-0  ">
-                      <p class="whitespace-no-wrap">{coin.rank}</p>
-                    </td>
+                {loading ? (
+                  <div className="text-black-300">loading ...</div>
+                ) : (
+                  trending.map((coin, index) => (
+                    <tr className="xs:text-left">
+                      <td class="text-center border-b border-gray-100 bg-white px-0 py-0  ">
+                        <p class="whitespace-no-wrap">{index + 1}</p>
+                      </td>
+                      <td class="text-left border-b border-gray-100 bg-white px-0 py-0  ">
+                        <p class="whitespace-no-wrap">{coin.rank}</p>
+                      </td>
 
-                    <td class=" text-left border-b border-gray-100 bg-white px-5 py-5  ">
-                      <p class="whitespace-no-wrap flex gap-2">
-                        {coin.icon ? (
-                          <img src={coin.icon} height={5} width={20}></img>
-                        ) : null}
+                      <td class=" text-left border-b border-gray-100 bg-white px-5 py-5  ">
+                        <p class="whitespace-no-wrap flex gap-2">
+                          {coin.icon ? (
+                            <img src={coin.icon} height={5} width={20}></img>
+                          ) : null}
 
-                      {
-                        coin.code.replaceAll("_","")
-                      }
-                      </p>
-                    </td>
-                    <td class=" text-left border-b border-gray-100 bg-white px-5 py-5  ">
-                      <p class="whitespace-no-wrap">
-                      {FormatDollar(coin.price)}
-                      </p>
-                    </td>
-                    
-                    <td class="text-left border-b border-gray-100 bg-white px-5 py-5 ">
-                      <p class="whitespace-no-wrap">
-                      {FormatDollar(coin.totalCap)}
-                      </p>
-                    </td>
-                    <td class="text-left border-b border-gray-100 bg-white px-5 py-5 ">
-                      <p class="whitespace-no-wrap">
-                      {coin.favorites}
-                      </p>
-                    </td>
-                    <td class="text-left border-b border-gray-100 bg-white px-5 py-5">
-                     <ChartComponent values = {coin.plot.day}/>
-                    </td>
-                  </tr>
-                ))}
+                          {coin.code.replaceAll("_", "")}
+                        </p>
+                      </td>
+                      <td class=" text-left border-b border-gray-100 bg-white px-5 py-5  ">
+                        <p class="whitespace-no-wrap">
+                          {FormatDollar(coin.price)}
+                        </p>
+                      </td>
+
+                      <td class="text-left border-b border-gray-100 bg-white px-5 py-5 ">
+                        <p class="whitespace-no-wrap">
+                          {FormatDollar(coin.totalCap)}
+                        </p>
+                      </td>
+                      <td class="text-left border-b border-gray-100 bg-white px-5 py-5 ">
+                        <p class="whitespace-no-wrap">{coin.favorites}</p>
+                      </td>
+                      <td class="text-left border-b border-gray-100 bg-white px-5 py-5">
+                        <ChartComponent values={coin.plot.day} />
+                      </td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>
@@ -118,10 +107,7 @@ const Trending = ()=>{
           </div>
         </div>
       </div>
-       
-
-        </>
-    )
-
-}
+    </>
+  );
+};
 export default Trending;
