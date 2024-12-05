@@ -3,8 +3,8 @@ import useWebSocket from "react-use-websocket";
 import { FormatDollar } from "../utils/currencyFormatter";
 import { FaBitcoin } from "react-icons/fa";
 
-const BitcoinArea = () => {
-  const [btc, setBtc] = useState("");
+const BitcoinArea = ({btcValue}) => {
+  const [btc, setBtc] = useState(btcValue);
   const[loading,setLoading]=useState(true)
   const { sendMessage, lastMessage, readyState } = useWebSocket("wss://ws.coincap.io/prices?assets=bitcoin", {
     onOpen: () => console.log("ws connection opened"),
@@ -31,7 +31,7 @@ const BitcoinArea = () => {
             style={{ maxWidth: "" }}
           >
             {
-                loading?"":FormatDollar(btc.bitcoin)
+                loading?FormatDollar(btcValue):FormatDollar(btc.bitcoin)
             }
            
           </span>

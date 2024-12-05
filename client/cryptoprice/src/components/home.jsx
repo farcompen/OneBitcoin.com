@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     fetchAllAssets();
     fetchTopAssets();
-  
+fetchBtcValue();
   }, [sortedStatus]);
 
   const fetchTopAssets = async () => {
@@ -40,13 +40,20 @@ const Home = () => {
     setSortedStatus(!sortedStatus);
     setRenderedAssets(sorted);
   };
+  const fetchBtcValue = async ()=>{
+    const value = await fetch(process.env.REACT_APP_BTC_URL)
+                  .then(res=>res.json())
+                  console.log("btc is",value.result[0].last);
+          setBtc(value.result[0].last)        
+
+  }
   
   return (
     <>
       <Navbar />
       <MarketNav />
       <div className="w-screen">
-        <BitcoinArea/>
+        <BitcoinArea btcValue={btc}/>
 
         <div class="max-w-screen-md ml-6 ">
           <div class="rounded-lg  bg-white py-2 ">
