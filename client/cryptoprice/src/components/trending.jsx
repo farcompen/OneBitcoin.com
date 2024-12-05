@@ -16,7 +16,6 @@ const Trending = () => {
     const result = await fetch(apiUrl).then((res) => res.json());
     setTrending(result.result.data);
     setLoading(false);
-    console.log(result.result.data);
   };
 
   return (

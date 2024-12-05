@@ -5,9 +5,8 @@ import { FaBitcoin } from "react-icons/fa";
 
 const BitcoinArea = () => {
   const [btc, setBtc] = useState("");
-  const[loading,setLoading]=useState(false)
-  const btcUrl = process.env.REACT_APP_WEBSOCKET_URL;
-  const { sendMessage, lastMessage, readyState } = useWebSocket(btcUrl, {
+  const[loading,setLoading]=useState(true)
+  const { sendMessage, lastMessage, readyState } = useWebSocket("wss://ws.coincap.io/prices?assets=bitcoin", {
     onOpen: () => console.log("ws connection opened"),
     onClose: () => console.log("es connection clsoed"),
   });       

@@ -6,7 +6,6 @@ const AssetsTable = ({ coins, isHide, handleOrder }) => {
   const [loading, setLoading] = useState(true);
   //const [assets,setAssets]=useState([coins]);
   useEffect(() => {
-    console.log("assets effected");
     setSorted(coins);
     setLoading(true);
     if (coins.length > 0) {
