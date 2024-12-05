@@ -3,11 +3,7 @@
  function setInitAssets (){
 
   const topAssets =  [
-    {
-      name: "BTC-USDT",
-      icon: "https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=035",
-      fullName:"Bitcoin"
-    },
+   
     {
       name: "ETH-USDT",
       icon: "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=035",
@@ -74,6 +70,12 @@
       icon: "https://cryptologos.cc/logos/arbitrum-arb-logo.png?v=035",
       fullName:"Sui"
     },
+    {
+      name:"TIA-USDT",
+      icon:"https://cryptologos.cc/logos/celestia-tia-logo.png?v=035",
+      fullName:"Celestia"
+    }
+    
   
     // "BTC-USDT",
     // "CHZ-USDT",
