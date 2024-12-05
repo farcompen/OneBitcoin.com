@@ -31,7 +31,7 @@ const BitcoinArea = () => {
             style={{ maxWidth: "" }}
           >
             {
-                loading?"Loading ...":FormatDollar(btc.bitcoin)
+                loading?"":FormatDollar(btc.bitcoin)
             }
            
           </span>
