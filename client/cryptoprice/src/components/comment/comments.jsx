@@ -10,7 +10,10 @@ const Comments = () => {
     const comments = await axios.get(process.env.REACT_APP_COMMENTS_URL);
    return comments.data.comments
   };  
-   const { data, error, isLoading } = useQuery('comments', retrieveComments);
+   const {isPending,error,data}=useQuery({
+    queryKey:['comments'],
+    queryFn:retrieveComments
+   })
    if(!data) return <div>no data..</div>
    if(error) return <div>{error.message}</div>
    return (
@@ -27,7 +30,7 @@ const Comments = () => {
 
             <div class="w-full text-left">
               <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row lg:text-base sm:text-base md:text-base xs:text-xs">
-                <h3 class="font-medium">{dt.author}</h3>
+                <h3 class="font-medium text-black ">{dt.author}</h3>
                 <time class="text-xs" datetime="2022-11-13T20:00Z">
                 {Date.parse(dt.date)}
                 </time>

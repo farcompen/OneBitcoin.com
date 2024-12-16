@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const CreateComment = () => {
+  const [hidden,setHidden]=useState("hidden");
   const [formData, setFormData] = useState({
     author: "",
     comment: "",
@@ -45,19 +46,21 @@ const CreateComment = () => {
 
   return (
     <>
-      <div class="">
-        <div class="ml-20  lg:max-w-screen-sm px-4 rounded-xl">
-          <h1 class="mt-1 text-xl font-bold sm:mb-6 lg:text-base md:text-base sm:text-base xs:text-xs  font-mono">
-            Write your comment
-          </h1>
-
+  
+  <div className="ml-20 underline lg:text-base md:text-base sm:text-base xs:text-xs font-mono">
+<a onClick={()=>setHidden("")} >Write Your Comment </a>
+  </div>
+      <div class={hidden}>
+  
+        <div class="ml-20  lg:max-w-screen-sm px-4 rounded-xl ">
+        
           <div class="-ml-20 flex p-4 text-left text-gray-700">
             <img
               class="mr-5 h-8 w-8 rounded-full"
               src="https://ui-avatars.com/api/?name=John+Doe"
               alt=""
             />
-            <div class="w-full space-y-3 text-gray-700 font-mono xs:text-xs">
+            <div class="w-full space-y-3 text-gray-700 font-mono xs:text-xs ">
               <form onSubmit={handleSubmit}>
                 <div class="">
                   <input
