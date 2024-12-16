@@ -47,17 +47,17 @@ const CreateComment = () => {
     <>
       <div class="">
         <div class="ml-20  lg:max-w-screen-sm px-4 rounded-xl">
-          <h1 class="mt-6 text-xl font-bold sm:mb-6 lg:text-base md:text-base sm:text-base xs:text-xs  font-mono">
+          <h1 class="mt-1 text-xl font-bold sm:mb-6 lg:text-base md:text-base sm:text-base xs:text-xs  font-mono">
             Write your comment
           </h1>
 
           <div class="-ml-20 flex p-4 text-left text-gray-700">
             <img
-              class="mr-5 h-12 w-12 rounded-full"
+              class="mr-5 h-8 w-8 rounded-full"
               src="https://ui-avatars.com/api/?name=John+Doe"
               alt=""
             />
-            <div class="w-full space-y-3 text-gray-700">
+            <div class="w-full space-y-3 text-gray-700 font-mono xs:text-xs">
               <form onSubmit={handleSubmit}>
                 <div class="">
                   <input
@@ -80,8 +80,8 @@ const CreateComment = () => {
                     onChange={handleChange}
                     placeholder="Write your comment here"
                     cols="30"
-                    rows="6"
-                    class="h-40 w-full min-w-full max-w-full overflow-auto whitespace-pre-wrap rounded-md border bg-white p-5 text-sm font-normal normal-case text-gray-600 opacity-100 outline-none focus:text-gray-600 focus:opacity-100 focus:ring"
+                    rows="4"
+                    class="h-30 w-full min-w-full max-w-full overflow-auto whitespace-pre-wrap rounded-md border bg-white p-5 text-sm font-normal normal-case text-gray-600 opacity-100 outline-none focus:text-gray-600 focus:opacity-100 focus:ring"
                   ></textarea>
                 </div>
                 <div class="float-right">

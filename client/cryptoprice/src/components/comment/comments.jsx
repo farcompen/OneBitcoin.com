@@ -18,21 +18,21 @@ const Comments = () => {
 
     {data.map((dt) => (
           <>
-          <div className="my-8 flex max-w-screen-lg rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8">
+          <div className="my-8 flex max-w-screen-lg rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8 font-mono">
           <img
-              class="mr-5 block h-8 w-8 max-w-full text-left align-middle sm:h-16 sm:w-16"
+              class="mr-5 block lg:h-10 lg:w-10 max-w-full text-left align-middle sm:h-6 sm:w-6 xs:w-4 xs:h-4"
               src={image}
               alt="Profile Picture"
             />
 
             <div class="w-full text-left">
-              <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row">
+              <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row lg:text-base sm:text-base md:text-base xs:text-xs">
                 <h3 class="font-medium">{dt.author}</h3>
                 <time class="text-xs" datetime="2022-11-13T20:00Z">
                 {Date.parse(dt.date)}
                 </time>
               </div>
-              <p class="text-sm">
+              <p class="lg:text-base sm:text-base md:text-base  xs:text-xs">
                {dt.comment}
               </p>
               <div class="mt-5 flex items-center justify-between text-gray-600">
@@ -58,7 +58,7 @@ const Comments = () => {
                       d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                     />
                   </svg>
-                  12
+                 
                 </a>
               </div>
             </div>
