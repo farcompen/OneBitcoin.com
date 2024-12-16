@@ -27,7 +27,7 @@ const Comments = () => {
 
             <div class="w-full text-left">
               <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row">
-                <h3 class="font-medium">{dt.name}</h3>
+                <h3 class="font-medium">{dt.author}</h3>
                 <time class="text-xs" datetime="2022-11-13T20:00Z">
                 {Date.parse(dt.date)}
                 </time>
