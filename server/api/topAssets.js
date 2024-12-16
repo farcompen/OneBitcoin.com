@@ -30,11 +30,7 @@
       icon: "https://miro.medium.com/v2/resize:fit:1200/1*FJHpzD8bt0qyx6nDXceZtA.jpeg",
       fullName:"Meme"
     },
-    {
-      name: "USDT-USD",
-      icon: "https://seeklogo.com/images/C/chiliz-chz-logo-605C6C40F6-seeklogo.com.png",
-  
-    },
+    
     {
       name: "SOL-USDT",
       icon: "https://cryptologos.cc/logos/solana-sol-logo.png?v=035",
@@ -75,7 +71,7 @@
       icon:"https://cryptologos.cc/logos/celestia-tia-logo.png?v=035",
       fullName:"Celestia"
     }
-    
+
   
     // "BTC-USDT",
     // "CHZ-USDT",
