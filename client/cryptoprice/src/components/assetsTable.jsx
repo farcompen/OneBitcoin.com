@@ -43,7 +43,7 @@ const AssetsTable = ({ coins, isHide, handleOrder }) => {
           <div class="overflow-x-auto">
             <table class="w-full border font-mono">
               <thead className="border ">
-                <tr class="bg-slate-100 text-left lg:text-base md:text-base sm:text-base xs:text-xs font-semibold  tracking-widest text-black-400 xs:text-left">
+                <tr class="bg-slate-50 text-left lg:text-base md:text-base sm:text-base xs:text-xs  tracking-widest text-black-400 xs:text-left">
                   <th class="px-5 py-3  text-center">#</th>
                   <th class="px-5 py-3 text-center">Coin</th>
                   <th class="px-5 py-3 text-right">Price</th>

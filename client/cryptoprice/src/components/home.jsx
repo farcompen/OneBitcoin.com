@@ -6,6 +6,8 @@ import { FormatDollar } from "../utils/currencyFormatter";
 import { FaBitcoin } from "react-icons/fa";
 import { CalculateChanging } from "../utils/changeCalculater";
 import BitcoinArea from "./bitcoinArea";
+import CreateComment from "./comment/createComment";
+import Comments from "./comment/comments";
 const Home = () => {
   const [topAssets, setTopAssets] = useState([]);
   const[btc,setBtc]=useState("");
@@ -41,11 +43,11 @@ fetchBtcValue();
     setRenderedAssets(sorted);
   };
   const fetchBtcValue = async ()=>{
-    const value = await fetch(process.env.REACT_APP_BTC_URL)
-                  .then(res=>res.json())
-                  console.log("btc is",value.result[0].last);
-          setBtc(value.result[0].last)        
-
+    // const value = await fetch(process.env.REACT_APP_BTC_URL)
+    //               .then(res=>res.json())
+    //               console.log("btc is",value.result[0].last);
+    //       setBtc(value.result[0].last)        
+setBtc(0)
   }
   
   return (
@@ -97,6 +99,8 @@ fetchBtcValue();
           handleOrder={(sortedCoins) => handleOrdered(sortedCoins)}
         />
       </div>
+      <CreateComment />
+      <Comments/>
     </>
   );
 };
