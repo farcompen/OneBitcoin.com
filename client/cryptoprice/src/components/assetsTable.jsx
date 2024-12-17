@@ -119,10 +119,10 @@ const AssetsTable = ({ coins, isHide, handleOrder }) => {
               Showing {coins.length} coins{" "}
             </span>
             <div class="mt-2 inline-flex sm:mt-0">
-              <button class="mr-2 h-12 w-12 rounded-full border text-sm font-semibold text-gray-600 transition duration-150 hover:bg-gray-100">
+              <button class="mr-2 h-6 w-6 rounded-full border text-xs font-semibold text-gray-600 transition duration-150 hover:bg-gray-100">
                 Prev
               </button>
-              <button class="h-12 w-12 rounded-full border text-sm font-semibold text-gray-600 transition duration-150 hover:bg-gray-100">
+              <button class="h-6 w-6 rounded-full border text-xs font-semibold text-gray-600 transition duration-150 hover:bg-gray-100">
                 Next
               </button>
             </div>
