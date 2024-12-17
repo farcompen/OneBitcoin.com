@@ -10,7 +10,7 @@ const CreateComment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (handleFormFields()) {
-      console.log("alanlar dolu");
+      
       const result = await fetch(process.env.REACT_APP_COMMENTS_URL, {
         method: "POST",
         headers: new Headers({
@@ -22,8 +22,8 @@ const CreateComment = () => {
         }),
       })
         .then((res) => res.json())
-       
-      console.log(result);
+      alert("Comment will be reveiwed")
+     
     }
     else {
       console.log("alanlar boş")

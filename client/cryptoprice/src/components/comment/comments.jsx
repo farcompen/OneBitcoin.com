@@ -32,7 +32,7 @@ const Comments = () => {
               <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row lg:text-base sm:text-base md:text-base xs:text-xs">
                 <h3 class="font-medium text-black ">{dt.author}</h3>
                 <time class="text-xs" datetime="2022-11-13T20:00Z">
-                {Date.parse(dt.date)}
+                {new Date(dt.date).toDateString()}
                 </time>
               </div>
               <p class="lg:text-base sm:text-base md:text-base  xs:text-xs">
